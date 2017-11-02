@@ -18,7 +18,7 @@ python ./image_retraining/retrain.py \
 --output_graph=./TF/output_graph.pb \
 --output_labels=./TF/output_labels.txt \
 --summaries_dir=./TF/retrain_logs \
---how_many_training_steps=100 \
+--how_many_training_steps=4000 \
 --model_dir=./TF/imagenet \
 --bottleneck_dir=./TF/bottleneck
 ```
