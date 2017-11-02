@@ -7,7 +7,7 @@ python get_image_batch_urls.py
 ### 2. download images with the url lists
 
 ```bash
-python download_image.py -n 1000 -s 450
+python3 download_image.py -n 1000 -s 450
 ```
 
 ### 3. train the model 
