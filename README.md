@@ -33,6 +33,6 @@ python ./image_retraining/label_image.py \
 ```
 
 ### 5. notes
-the "image_retaining" directory is from the original tensorflow repository "tensorflow/examples/image_retraining".
+the "image_retaining" directory is from the original tensorflow repository "tensorflow/examples/image_retraining".<br />
 the "draft_test_code" directory contains the draft codes for web scraping.
 
