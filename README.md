@@ -23,7 +23,7 @@ python ./image_retraining/retrain.py \
 --bottleneck_dir=./TF/bottleneck
 ```
 
-### 4.test a image
+### 4. test a image
 
 ```bash
 python ./image_retraining/label_image.py \
@@ -31,3 +31,8 @@ python ./image_retraining/label_image.py \
 --output_layer=final_result:0 \
 --image=./test.jpeg
 ```
+
+### 5. notes
+the "image_retaining" directory is from the original tensorflow repository "tensorflow/examples/image_retraining".
+the "draft_test_code" directory contains the draft codes for web scraping.
+
