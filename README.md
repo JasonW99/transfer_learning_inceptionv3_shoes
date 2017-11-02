@@ -10,5 +10,24 @@ python get_image_batch_urls.py
 python download_image.py -n 1000 -s 450
 ```
 
+### 3. train the model 
 
+```bash
+python ./image_retraining/retrain.py \
+--image_dir=./imageDownload/ \
+--output_graph=./TF/output_graph.pb \
+--output_labels=./TF/output_labels.txt \
+--summaries_dir=./TF/retrain_logs \
+--how_many_training_steps=100 \
+--model_dir=./TF/imagenet \
+--bottleneck_dir=./TF/bottleneck
+```
 
+### 4.test a image
+
+```bash
+python ./image_retraining/label_image.py \
+--graph=./TF/output_graph.pb --labels=./TF/output_labels.txt \
+--output_layer=final_result:0 \
+--image=./test.jpeg
+```
