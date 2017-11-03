@@ -29,7 +29,10 @@ def main(image_number, size):
                 # print(curr_url)
                 curr_file = os.path.join(download_dir, curr_list[i].split("?")[0].split("/")[-1])
                 if not os.path.exists(curr_file):
-                	urllib.request.urlretrieve(curr_url, curr_file)
+                	try:
+                		urllib.request.urlretrieve(curr_url, curr_file)
+                	except:
+                		print(arg)
                 print("downloading image" + str(i) + "for" + currClass)
 
 if __name__ == "__main__":
