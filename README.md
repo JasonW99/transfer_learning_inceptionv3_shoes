@@ -35,7 +35,7 @@ python ./image_retraining/label_image.py \
 ```
 
 ### 5. notes
-the "draft_test_code" directory contains the draft codes for web scraping.
+the "draft_test_code" directory contains the draft codes for web scraping.<br />
 the "image_retaining" directory is from the original tensorflow repository "tensorflow/examples/image_retraining".
 so instead of using python to call the script, we can first build the tensorflow repository, and then train or test with bazel-bin
 ```bash
