@@ -20,14 +20,17 @@ def main(image_number, size):
     for curr_file in file_names:
         with open(os.path.join(url_dir, curr_file), "r") as f:
             curr_list = f.read().split("\n")
-            download_dir = os.path.join(image_dir, curr_file.replace(".txt", "", 1))
+            currClass = curr_file.replace(".txt", "", 1)
+            download_dir = os.path.join(image_dir, currClass)
             if not os.path.exists(download_dir):
                 os.makedirs(download_dir)
             for i in range(0, image_number):
                 curr_url = curr_list[i].split("?")[0] + "?odnHeight=" + size + "&odnWidth=" + size + "&odnBg=ffffff"
                 # print(curr_url)
-                urllib.request.urlretrieve(curr_url,
-                                           os.path.join(download_dir, curr_list[i].split("?")[0].split("/")[-1]))
+                curr_file = os.path.join(download_dir, curr_list[i].split("?")[0].split("/")[-1])
+                if not os.path.exists(curr_file):
+                	urllib.request.urlretrieve(curr_url, curr_file)
+                print("downloading image" + str(i) + "for" + currClass)
 
 if __name__ == "__main__":
     n = 10

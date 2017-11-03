@@ -2,11 +2,13 @@
 ### 1. scraping image urls from walmart search result page
 
 ```bash
+# the url lists will be saved as *.txt files in the directory "./imageUrl"
 python get_image_batch_urls.py
 ```
 ### 2. download images with the url lists
 
 ```bash
+# the images will be download into the directory "./imageDownload"
 python3 download_image.py -n 1000 -s 450
 ```
 
