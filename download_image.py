@@ -12,7 +12,7 @@ and download the images to corresponding folders within the directory ./imageDow
 '''
 
 
-def main(image_number, size):
+def main(total_number, size):
     url_dir = "./imageUrl/"
     image_dir = "./imageDownload/"
     file_names = os.listdir(url_dir)
@@ -22,18 +22,29 @@ def main(image_number, size):
             curr_list = f.read().split("\n")
             currClass = curr_file.replace(".txt", "", 1)
             download_dir = os.path.join(image_dir, currClass)
-            if not os.path.exists(download_dir):
-                os.makedirs(download_dir)
-            for i in range(0, image_number):
+
+            image_number = 0
+            if os.path.exists(download_dir):
+            	image_number = len(os.listdir(download_dir))
+            	print(str(image_number) + " images have already been downloaded.")
+            else:
+                os.makedirs(download_dir)            
+
+            i = 0
+            while image_number < total_number and i < len(curr_list):
                 curr_url = curr_list[i].split("?")[0] + "?odnHeight=" + size + "&odnWidth=" + size + "&odnBg=ffffff"
                 # print(curr_url)
                 curr_file = os.path.join(download_dir, curr_list[i].split("?")[0].split("/")[-1])
-                if not os.path.exists(curr_file):
+                if os.path.exists(curr_file):
+                	print("processing record " + str(i) + ": a duplicate image -- " + curr_file)              	
+                else:
                 	try:
                 		urllib.request.urlretrieve(curr_url, curr_file)
+                		image_number += 1
+                		print("processing record " + str(i) + ": download image" + str(image_number) + " for " + currClass)
                 	except:
                 		print(arg)
-                print("downloading image" + str(i) + "for" + currClass)
+                i += 1
 
 if __name__ == "__main__":
     n = 10
